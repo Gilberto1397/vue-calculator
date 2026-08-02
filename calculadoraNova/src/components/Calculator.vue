@@ -31,29 +31,29 @@ const dot = () => {
   }
 }
 
-const seetPrevious = () => {
+const setPrevious = () => {
   previous.value = current.value;
   operatorClicked.value = true;
 }
 
 const divide = () => {
   operator.value = (a, b) => a / b
-  seetPrevious.value()
+  setPrevious()
 }
 
 const times = () => {
   operator.value = (a, b) => a * b
-  seetPrevious.value()
+  setPrevious()
 }
 
 const minus = () => {
   operator.value = (a, b) => a - b
-  seetPrevious.value()
+  setPrevious()
 }
 
 const add = () => {
   operator.value = (a, b) => a + b
-  seetPrevious.value()
+  setPrevious()
 }
 
 const equal = () => {

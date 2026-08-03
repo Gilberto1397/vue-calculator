@@ -3,11 +3,13 @@ import {ref} from 'vue';
 
 const current = ref("");
 const stringCalculo = ref("");
-const operator = ref(null);
-const previous = ref(null);
 const operatorClicked = ref(false);
+const resultadoGerado = ref(false);
 const clear = () => {
   current.value = ""
+  stringCalculo.value = ""
+  operatorClicked.value = false
+  resultadoGerado.value = false
 }
 
 const sign = () => { //ACRESCENTA O SINAL DE - NA FRENTE
@@ -19,9 +21,10 @@ const percent = () => {
 }
 
 const append = (valor) => {
-  if (operatorClicked.value) {
+  if (operatorClicked.value || resultadoGerado.value) {
     current.value = ''
     operatorClicked.value = false
+    resultadoGerado.value = false
   }
   current.value += valor; //irá adicionando o n° no fim da string
 }
@@ -37,6 +40,7 @@ const equal = () => {
   stringCalculo.value += current.value;
   current.value = eval(stringCalculo.value);
   stringCalculo.value = '';
+  resultadoGerado.value = true;
 }
 </script>
 
